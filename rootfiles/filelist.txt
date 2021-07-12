@@ -1,0 +1,17 @@
+R. Michaels  July 11, 2021
+The files you need are at JLab on the ifarm.
+
+ifarm:/w/halla-scifs17exp/parity/disk1/bob/trkcorr_rootfiles
+
+For Qsq tests (QsqDistort.C) 
+/prexLHRS_1983_-1.root
+/prexLHRS_1984_-1.root
+/prexRHRS_21108_-1.root
+
+For Sieve slit tests (MoveHoles.C  MoveTracks.C)
+/prexLHRS_2239_siyu.root
+/prexLHRS_2240_siyu.root
+/prexLHRS_2241_siyu.root
+/prexRHRS_21363_siyu.root
+/prexRHRS_21364_siyu.root
+/prexRHRS_21365_siyu.root
