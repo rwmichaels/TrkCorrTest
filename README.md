@@ -35,22 +35,35 @@ holefiles:
    holes* = where the sieve holes are in tg_th vs tg_ph
    residuals* = residuals between track and holes
 
-Notes on the work flow
-
-Use TrkHoles.C (separate directory) find the residuals.
-Put them into ./holefiles/resid*
-
-control the variable Which_Spectrometer (=L or R) in the macros.
-control ixbeam (=0,1,2), same macros
-AfileL(R).root is a link; make it point to the file corresponding
-to ixbeam.
-
-Run MoveHoles.C or MoveTracks.C to check residuals.
-
 Question: How do we know that HrsTrkCorr is correct ?
 Answer: Use root macros MoveHoles.C and MoveTracks.C to verify that
 tracks lie on the holes for the sieve slit runs.
 Also, some vetting of the class was done with QsqDistort.C
+
+Notes on the work flow -- example on ifarm
+
+git clone https://rwmichaels@github.com/rwmichaels/TrkCorrTest.git
+ 
+   delete contents of rootfiles, make links.
+   rootfiles -> /w/halla-scifs17exp/parity/disk1/bob/trkcorr_rootfiles
+
+   For convenience, copy stuff here
+      cp ../HrsTrkCorr/HrsTrkCorr.h .
+      cp ../HrsTrkCorr/HrsTrkCorr.C .
+
+   AfileL.root or AfileR.root is a link
+   AfileR.root -> ./rootfiles/prexRHRS_21364_siyu.root
+
+   Run MoveHoles.C, MoveTracks.C, or QsqDistort.C as per instructions
+   at the top of those files.
+
+  control the variable Which_Spectrometer (=L or R) in the macros.
+  control ixbeam (=0,1,2), same macros
+  AfileL(R).root is a link; make it point to the file corresponding
+  to ixbeam.
+
+
+
 
 
 
