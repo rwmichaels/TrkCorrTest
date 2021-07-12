@@ -16,13 +16,12 @@
 // Y_tgt is fixed at zero by the matrix elements !
 // So, instead I added a random X_beam the size of the raster.
 // If the X_beam is rastered symmetrically about zero the average
-// Qsq shift is practically zero.  That's good!  The residuals cancel.
+// Qsq shift is small (< 0.3%).  That's good!  The residuals cancel.
 // If I artificially restricted X_beam to 0 to +3mm I get an average
-// <tg_ph> shift of -0.39 mrad and Qsq increases by 1.08 %
-// Opposite sign: 0 to -3mm I get an average <tg_ph> shift of +0.38 mrad
-// and Qsq decreases by -1.0 %  So, we are counting on cancellations of 1%.
-// The signs make sense since I subtract the residual, which makes the
-// Qsq shift in the way I observe.
+// <tg_ph> shift of about -0.4 mrad and Qsq increases by of order 1%
+// The sign of the shift in Qsq depends on which HRS.
+// Opposite : X raster 0 to -3mm I get an average <tg_ph> shift ~ +0.4 mrad
+// and Qsq decreases by ~ -1 %  So, we are counting on cancellations of 1%.
 
 #include <limits>
 #include "HrsTrkCorr.h"
@@ -83,7 +82,7 @@ void qsq_distort() {
    // Raster on (1) or off (0)
    Int_t irast = 1;
    // Raster pattern assumption:  0: normal +/-.  -1 use minus X only, +1 +X.
-   Int_t raster_pattern=1;
+   Int_t raster_pattern=0;
    Double_t rnd1,rsign;   
    
    string Which_Spectrometer="R";   // change from L to R  (left vs right HRS)
